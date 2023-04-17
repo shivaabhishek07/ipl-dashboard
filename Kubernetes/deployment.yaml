@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ipld-deployment
+  labels:
+    app: ipl
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ipl
+  template:
+    metadata:
+      labels:
+        app: ipl
+    spec:
+      containers:
+      - name: ipl-db
+        image: shiva71/ipl-dashboard:latest
+        ports:
+        - containerPort: 8080
